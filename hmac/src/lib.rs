@@ -15,11 +15,11 @@
     html_logo_url = "https://raw.githubusercontent.com/RustCrypto/media/26acc39f/logo.svg",
     html_favicon_url = "https://raw.githubusercontent.com/RustCrypto/media/26acc39f/logo.svg"
 )]
-#![cfg_attr(docsrs, feature(doc_auto_cfg))]
+#![cfg_attr(docsrs, feature(doc_cfg))]
 #![forbid(unsafe_code)]
 #![warn(missing_docs)]
 
-pub use digest::{self, KeyInit, Mac};
+pub use digest::{self, KeyInit, Mac, block_api::EagerHash};
 
 /// Block-level implementation.
 pub mod block_api;
@@ -29,7 +29,6 @@ mod utils;
 
 pub use simple::SimpleHmac;
 pub use simple_reset::SimpleHmacReset;
-pub use utils::EagerHash;
 
 use core::fmt;
 use digest::block_api::{AlgorithmName, CoreProxy};
